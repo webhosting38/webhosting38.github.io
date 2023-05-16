@@ -25,8 +25,10 @@ for i in str1:
     i = i.split("-")
     iller[i[0]] = int(i[1])
 
-
-os.mkdir("secim2023")
+try:
+    os.mkdir("secim2023_last")
+except:
+    print("secim2023_last folder already exists")
 
 for i in iller:
     sleep(2)
@@ -71,6 +73,8 @@ for i in iller:
     html = a.to_html()
 
     # Save Styler as HTML file
-    html_file_path = f'secim2023/{i}.html'
+    html_file_path = f'secim2023_last/{i}.html'
     with open(html_file_path, 'w') as f:
         f.write(html)
+
+print("Done with scraping!")
